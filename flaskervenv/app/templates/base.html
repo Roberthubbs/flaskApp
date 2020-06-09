@@ -14,6 +14,9 @@
             {% else %}
             <a href="{{ url_for('logout')}}">Log Out</a>
             <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
+                {% if user == current_user %}
+                    <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+                {% endif %}
             {% endif%}
         <hr>
         {% with messages = get_flashed_messages() %}
